@@ -1,63 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css" />
     <title>Document</title>
-</head>
-<body>
-        <header>
-            <nav>
-                <a href="./highScore.html">"High Score"</a>
-            </nav>
-            <div id="timer"></div>
-        </header>
-        <main>
-        <section id="QuizSection1">
-            <p id="Question1">"what does this. refer to?"</p>
-           <ol>
-            <li>"The previous function"</li>
-            <li id="question1Answer">"Is a self-refrence"</li>
-            <li>"Does not refer to anything:"</li>
-            <li>"Is just another name for any object"</li>
-           </ol>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./highScore.html">High Score</a>
+      </nav>
+      <div>
+        <p id="timer">Time:</p>
+      </div>
+    </header>
+    <main>
+      <section id="startQuizSection">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Let's see how well you know JavaScript! Answer the following questions
+          as quickly as you can. For each question you get incorrect you will be
+          penalized ten seconds.
+        </p>
+        <button id="startQuizButton" onclick="startQuiz()">
+          Start Quiz
+        </button>
+      </section>
+      <section id="quizSection" hidden="true">
+        
+      </section>
 
-        </section>
-        <section id="QuizSection2">
-            <p id="Question2"></p>
-           <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-           </ol>
-
-        </section>
-        <section id="QuizSection3">
-            <p id="Question3"></p>
-           <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-           </ol>
-
-        </section>
-        <section id="QuizSection4">
-            <p id="Question4"></p>
-           <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-           </ol>
-
-        </section>
-        <section>
-            <h2>All Done</h2>
-            <p id="userInput initals"></p>
-        </section>
+      <section id="lastSection" hidden>
+        <h2>All Done</h2>
+        <p id="userInput initals"></p>
+      </section>
     </main>
-</body>
+    <script src="./assets/questions.js"></script>
+    <script src="./assets/main.js"></script>
+  </body>
 </html>

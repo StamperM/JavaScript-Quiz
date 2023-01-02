@@ -1,3 +1,42 @@
 body {
     margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+main {
+    margin: 5%;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+#timer {
+    flex-basis: 50%;
+    padding-right: 20px;
+
+}
+nav a {
+    text-decoration: none;
+    color: black;
+
+}
+
+#StartQuizSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#StartQuizSection p {
+    padding: 1% 15%;
+    text-align: center;
+    
+}
+
+#startQuizButton {
+    background-color: rgb(63, 30, 105);
+    border-radius: 8%;
+    color: white;
+    padding: 5px;
 }
