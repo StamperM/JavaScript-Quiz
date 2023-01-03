@@ -21,14 +21,14 @@ nav a {
 
 }
 
-#StartQuizSection {
+#startQuizSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#StartQuizSection p {
+#startQuizSection p {
     padding: 1% 15%;
     text-align: center;
     
@@ -39,4 +39,10 @@ nav a {
     border-radius: 8%;
     color: white;
     padding: 5px;
+}
+#quizSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
 }

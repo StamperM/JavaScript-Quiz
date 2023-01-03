@@ -3,17 +3,20 @@ var questionElement = document.querySelector("#quizSection");
 
 var timerEl = document.querySelector("#timer");
 console.log(timerEl);
+var setTimer = 6000;
 var score = 60;
-var timeForTimer = 60000;
 var questionIndex = 0;
+var 
 
 
 function startQuiz() {
     console.log('Quiz starting');
     console.log(questionElement);
     questionElement.removeAttribute('hidden');
-    startQuizElement.setAttribute('hidden', true)
+    startQuizElement.setAttribute('hidden', false);
     getQuestion();
+    gameTimer();
+    
 }
 
 function getQuestion(){
@@ -30,20 +33,18 @@ function getQuestion(){
         
     }
 }
-
-function gameTimer() {
-  var timerCountdown = setInterval(function () {
-    timeForTimer--;
-    timerEl.textContent = "Timer" + score;
-  },timeForTimer);
-
-
-  if (timerEl.textContent ==='0'){
-    clearInterval(timerCountdown);
-    // clear setInterval 
+function gameTimer(){
+var scoreboard = setInterval(function () {
+  if (score> 0){
+      scoreElement.textContent =  'Score: ' + score;
+      score --;
+  } else {
+      scoreElement.contextContent = "Score: " + score;
+      clearInterval(scoreboard);
+      endOfGame();
   }
+},setTimer);
 }
-
 // Line 1 associates timeEl with #timer on the HTML.
 // gameTimer() uses time set interval to reduce the time that is
 // the score.
