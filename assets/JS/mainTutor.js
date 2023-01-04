@@ -6,7 +6,7 @@ console.log(timerEl);
 var setTimer = 6000;
 var score = 60;
 var questionIndex = 0;
-var 
+
 
 
 function startQuiz() {
