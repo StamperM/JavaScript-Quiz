@@ -50,11 +50,6 @@ function startQuiz(){
 }
 
 
-
-
-// function endOfGame (params) {
-    
-// }
 // displayQuestion () will display the question of the index it is at. 
 function displayQuestion(index){
     console.log('hello')
@@ -75,47 +70,7 @@ document.querySelectorAll('.userAnswer').forEach(answer=>{
 
 }
 
-// // need to add eventListener on the answers. 
-// document.querySelectorEach('.userAnswer').addEventListener('click', displayQuestion());
 
-
-// document.querySelectorAll('#userAnswer').forEach(answer=>{
-//     answer.addEventListener('click', event=>{
-//         console.log(answer);
-//         console.log(event);
-//     })
-// })
-// answerTwo.addEventListener('click', function(event){
-//     console.log(event);
-//     console.log('the sucks');
-//    return answerTheQuestions();
-// });
-
-// swerThree.addEventListener('click', function selectAnswer3(){
-//     if (answerThree === questions.correct){
-//     document.getElementById('notifyUser').textContent= "Correct";
-//     return displayQuestion(currentIndex++);
-// } else {
-//     return incorrectAnswer();
-// }
-// });
-// answerFour.addEventListener('click', function selectAnswer2(){
-//     if (answerFour === questions.correct){
-//     document.getElementById('notifyUser').textContent= "Correct";
-//     return displayQuestion(currentIndex++);
-// } else {
-//     return incorrectAnswer();
-// }
-// });
-
-// || answerTwo === questions.correct || answerThree === questions.correct || answerFour ===questions.correct 
-
-
-// function incorrectAnswer() {
-//     score - 10;
-//     document.getElementById('notifyUser').textContent= "Wrong";
-//     displayQuestion(currentIndex);
-// }
 
 
 
@@ -149,3 +104,14 @@ function scoreboardFun(){
       }
   },setTimer);
   }
+
+
+//  ToDo: For All Done unhide #lastSection and Hide #quizQuestions Container user score will be pulled from the score element and be written to totalScore. userInitals will need to be a user input and stored to local storage.  
+
+
+
+// Todo: High Scores Unhide Leaderboard &hide Last section. Create <li> to store the userIntials and Score scores in #leaderBoardList. 
+
+// Todo: Return user to start quiz #returnToQuiz
+
+// Todo: clear the scores off the board. May need to look at how to clear local storage?
