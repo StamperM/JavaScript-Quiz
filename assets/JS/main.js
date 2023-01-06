@@ -119,14 +119,16 @@ function saveScore(){
     Player: document.getElementById('userinputInitals'),
     playerScore: score
   };
-  localStorage.setItem("leaderboardInfo.player","leaderBoardInfo.playerScore"),JSON.stringify(leaderBoardInfo);
+  localStorage.setItem("name","userinputIntials"),JSON.stringify(leaderBoardInfo);
 }
  
 
 
 // Todo: High Scores Unhide Leaderboard &hide Last section. Create <li> to store the userIntials and Score scores in #leaderBoardList.
 function displayScoresOnBoard(){
-  var recentScore = JSON.parse(localStorage.getitem('leaderBoardInfo'))
+  var recentScore = JSON.parse(localStorage.getItem('leaderBoardInfo'))
+
+
 }
 // Todo: Return user to start quiz #returnToQuiz
 

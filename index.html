@@ -30,7 +30,7 @@
       </section>
       <section id="quizQuestionContainer" hidden="true">
         <p id="question"> Question</p>
-        <ul>
+        <ul id="answerOptions">
             <li class="userAnswer" id="answer1"></li>
             <li class="userAnswer" id="answer2"></li>
             <li class="userAnswer" id="answer3"></li>
@@ -45,7 +45,7 @@
         <P id="totalScore"></P>
         <form id="userInitals" action="input"><label id="intialRequest" for="intials">Enter your intials</label>
           <input id="userinputInitals" type="text" name="intials"> 
-          <button id="submitUserIntials" onclick="endOfGame()">Submit</button>
+          <button class="btn" id="submitUserIntials" onclick="endOfGame()">Submit</button>
         </form>
         
       </section>
@@ -54,8 +54,8 @@
 
         </ol>
         <div>
-          <button id="returnToQuiz"></button>
-          <button id="clearScores"></button>
+          <button class="btn" id="returnToQuiz"></button>
+          <button class="btn" id="clearScores"></button>
         </div>
       </section>
     </main>

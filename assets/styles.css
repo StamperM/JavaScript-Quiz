@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 main {
     margin: 5%;
@@ -17,7 +17,7 @@ header{
 }
 nav a {
     text-decoration: none;
-    color: black;
+    color: rgb(87, 85, 85);
 
 }
 
@@ -29,20 +29,59 @@ nav a {
 }
 
 #startQuizSection p {
+    display: flex;
     padding: 1% 15%;
     text-align: center;
     
 }
 
 #startQuizButton {
-    background-color: rgb(63, 30, 105);
+    background-color: rgb(130, 130, 219);
     border-radius: 8%;
     color: white;
     padding: 5px;
 }
+#question {
+    display: flex;
+    padding: 1% 15%;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center; 
+}
 #quizSection {
     display: flex;
+    padding: 1% 15%;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-self: center;
     
+    
+}
+#answerOptions{
+    flex-direction: column;
+    padding: 1% 15%;
+    justify-content: center;
+    list-style: none;
+    
+    
+}
+#question {
+    font-weight: 700;
+    color: rgb(75, 78, 80);
+}
+#answerOptions li {
+    background-color: rgb(130, 130, 219);
+    color: rgb(77, 79, 81);
+    display: flex;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 150px;
+}
+#leaderBoardList {
+    list-style: decimal;
+
+}
+.btn {
+    background-color:  rgb(130, 130, 219);;
 }
