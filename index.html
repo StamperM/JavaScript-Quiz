@@ -13,7 +13,7 @@
         <a href="./highScore.html">High Score</a>
       </nav>
       <div>
-        <p id="score">time</p>
+        <p id="score">Time</p>
       </div>
     </header>
     <main>
@@ -40,12 +40,16 @@
         <p id="notifyUser"></p>
       </section>
 
-      <section id="lastSection" hidden>
-        <h2>All Done</h2>
+      <section id="lastSection" hidden =>
+        <h2 id="allDone"></h2>
         <P id="totalScore"></P>
-        <p id="userinitals"></p>
+        <form id="userInitals" action="input"><label id="intialRequest" for="intials">Enter your intials</label>
+          <input id="userinputInitals" type="text" name="intials"> 
+          <button id="submitUserIntials" onclick="endOfGame()">Submit</button>
+        </form>
+        
       </section>
-      <section id="leaderBoard">
+      <section id="leaderBoard" hidden="'true">
         <ol id="leaderBoardList">
 
         </ol>
