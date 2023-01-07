@@ -10,7 +10,7 @@
   <body>
     <header>
       <nav>
-        <a href="./highScore.html">High Score</a>
+        <a href="leaderBoard">High Score</a>
       </nav>
       <div>
         <p id="score">Time</p>
@@ -49,13 +49,13 @@
         </form>
         
       </section>
-      <section id="leaderBoard" hidden="'true">
+      <section id="leaderBoard" hidden=>
         <ol id="leaderBoardList">
 
         </ol>
         <div>
           <button class="btn" id="returnToQuiz"></button>
-          <button class="btn" id="clearScores"></button>
+          <button class="btn" id="clearScores" onclick="clearLeaderBoard"></button>
         </div>
       </section>
     </main>
