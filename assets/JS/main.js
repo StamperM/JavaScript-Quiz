@@ -71,16 +71,18 @@ function displayQuestion(index) {
 function answerTheQuestions() {
   if (userInputAnswer === questions[currentIndex].correct) {
     document.getElementById("notifyUser").textContent = "Correct";
+    currentIndex++;
+    console.log(currentIndex);
     displayNextQuestion();
   } else {
     document.getElementById("notifyUser").textContent = "Wrong";
     score -= 10;
+    currentIndex++;
     displayNextQuestion();
   }
 }
 // displayNext Question will cont to display questions until it reaches the greater than the questions array length.
 function displayNextQuestion() {
-  currentIndex++;
   if (currentIndex < questions.length) {
     displayQuestion(currentIndex);
   } else {
@@ -114,6 +116,8 @@ function endOfGame() {
   ).textContent = `Your final score is ${score}`;
 
   saveScores();
+  clearInterval(scoreboardFun);
+  
 }
 
 function saveScores() {
@@ -140,12 +144,22 @@ function displayScoresOnBoard() {
       score.Player;
       score.playerScore;
     });
-    sortedscores.forEach((item) => {
+    sortedscores.forEach(function (item) {
       let li = document.createElement("li");
       li.innerText = item;
       list.appendChild(li);
     });
+   
+    
   }
+}
+
+function displayLeaderBoard(){
+  document.getElementById("leaderBoard").style.display = "block";
+  document.getElementById("quizQuestionContainer").style.display = "none";
+  document.getElementById("lastSection").style.display = "none";
+  document.getElementById("startQuizSection").style.display = "none";
+  
 }
 // Todo: Return user to start quiz #returnToQuiz
 

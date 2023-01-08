@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/CSS/styles.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
       <nav>
-        <a href="leaderBoard">High Score</a>
+        <a href="#leaderBoard">High Score</a>
       </nav>
       <div>
         <p id="score">Time</p>
@@ -40,26 +40,27 @@
         <p id="notifyUser"></p>
       </section>
 
-      <section id="lastSection" hidden =>
+      <section id="lastSection" hidden ="true">
         <h2 id="allDone"></h2>
         <P id="totalScore"></P>
         <form id="userInitals" action="input"><label id="intialRequest" for="intials">Enter your intials</label>
           <input id="userinputInitals" type="text" name="intials"> 
-          <button class="btn" id="submitUserIntials" onclick="endOfGame()">Submit</button>
+          <button class="btn" id="submitUserIntials" onclick="displayLeaderBoard()">Submit</button>
         </form>
         
       </section>
-      <section id="leaderBoard" hidden=>
+      <section id="leaderBoard" hidden="true" >
         <ol id="leaderBoardList">
-
+<li>
+  test
+</li>
         </ol>
         <div>
-          <button class="btn" id="returnToQuiz"></button>
-          <button class="btn" id="clearScores" onclick="clearLeaderBoard"></button>
+          <button class="btn" id="returnToQuiz">Return to Quiz</button>
+          <button class="btn" id="clearScores" onclick="clearLeaderBoard">ClearScores</button>
         </div>
       </section>
     </main>
   <script src="./assets/JS/main.js"></script>
-  <script src="./assets/JS/questions.js"></script>
   </body>
 </html>
