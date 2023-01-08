@@ -98,7 +98,8 @@ function runTheScore() {
     score--;
   } else {
     scoreElement.contextContent = "Score: " + score;
-    clearInterval(scoreboardFun);
+    
+    endOfGame();
   }
 }
 
@@ -111,12 +112,8 @@ function endOfGame() {
   document.getElementById("quizQuestionContainer").style.display = "none";
   document.getElementById("lastSection").style.display = "block";
   document.getElementById("allDone").textContent = "All Done";
-  document.getElementById(
-    "totalScore"
-  ).textContent = `Your final score is ${score}`;
-
+  document.getElementById("totalScore").textContent = `Your final score is ${score}`;
   saveScores();
-  clearInterval(scoreboardFun);
   
 }
 
