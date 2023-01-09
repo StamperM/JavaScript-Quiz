@@ -10,7 +10,7 @@
   <body>
     <header>
       <nav>
-        <a href="#leaderBoard">High Score</a>
+        <a href="#leaderBoard" onclick="displayLeaderBoard()">High Score</a>
       </nav>
       <div>
         <p id="score">Time</p>
@@ -34,7 +34,7 @@
             <li class="userAnswer" id="answer1"></li>
             <li class="userAnswer" id="answer2"></li>
             <li class="userAnswer" id="answer3"></li>
-            <li class="userAnswer" id="answer4">test</li>
+            <li class="userAnswer" id="answer4"></li>
         </ul>
         <hr>
         <p id="notifyUser"></p>
@@ -43,21 +43,20 @@
       <section id="lastSection" hidden ="true">
         <h2 id="allDone"></h2>
         <P id="totalScore"></P>
-        <form id="userInitals" action="input"><label id="intialRequest" for="intials">Enter your intials</label>
+        <label id="intialRequest" for="intials">Enter your intials</label>
           <input id="userinputInitals" type="text" name="intials"> 
           <button class="btn" id="submitUserIntials" onclick="displayLeaderBoard()">Submit</button>
-        </form>
+      
         
       </section>
       <section id="leaderBoard" hidden="true" >
+        <h2>High Scores</h2>
         <ol id="leaderBoardList">
-<li>
-  test
-</li>
+
         </ol>
         <div>
-          <button class="btn" id="returnToQuiz">Return to Quiz</button>
-          <button class="btn" id="clearScores" onclick="clearLeaderBoard">ClearScores</button>
+          <button class="btn" id="returnToQuiz" onclick="returnToQuiz()">Return to Quiz</button>
+          <button class="btn" id="clearScores" onclick="clearLeaderBoard()">ClearScores</button>
         </div>
       </section>
     </main>

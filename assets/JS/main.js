@@ -10,6 +10,7 @@ var answerTwo = document.getElementById("answer2");
 var answerThree = document.getElementById("answer3");
 var answerFour = document.getElementById("answer4");
 var userInputAnswer = "";
+var scoreTimer ;
 var questions = [
   {
     title: "Which of the following is not a type of JavaScript",
@@ -41,50 +42,60 @@ var questions = [
 var currentIndex = 0;
 
 // startQuiz will start the timer countdown,  will hide the start page, and show the first question
+document.querySelectorAll(".userAnswer").forEach((answer) => {
+  answer.addEventListener("click", (event) => {
+    userInputAnswer = event.target.textContent;
+    answerTheQuestions();
+  });
+});
 
 function startQuiz() {
   scoreboardFun();
   document.getElementById("startQuizSection").style.display = "none";
   document.getElementById("quizQuestionContainer").style.display = "block";
   displayQuestion(currentIndex);
+  // console.log(currentIndex)
   
 }
 
 // displayQuestion () will populate and display the question of the index it is at. Calling the answerTheQuestions() 
 function displayQuestion(index) {
-  console.log("hello");
+ 
   question1Element.textContent = questions[index].title;
-  console.log(answerOne);
+  // console.log(answerOne);
   answerOne.textContent = questions[index].answers[0];
   answerTwo.textContent = questions[index].answers[1];
   answerThree.textContent = questions[index].answers[2];
   answerFour.textContent = questions[index].answers[3];
-  document.querySelectorAll(".userAnswer").forEach((answer) => {
-    answer.addEventListener("click", (event) => {
-      userInputAnswer = event.target.textContent;
-      answerTheQuestions();
-    });
-  });
+  // document.querySelectorAll(".userAnswer").forEach((answer) => {
+  //   answer.addEventListener("click", (event) => {
+  //     userInputAnswer = event.target.textContent;
+  //     answerTheQuestions();
+  //   });
+  // });
 }
 
 // answerTheQuestions should take the users answer and compare it to the correct answer. If it's correct it will display correct at the bottom and the go to the next question. If it is in correct it wil notify the user they were wrong, reduce the score by 10 and then show the next question.
 function answerTheQuestions() {
   if (userInputAnswer === questions[currentIndex].correct) {
     document.getElementById("notifyUser").textContent = "Correct";
-    currentIndex++;
-    console.log(currentIndex);
-    displayNextQuestion();
+
   } else {
     document.getElementById("notifyUser").textContent = "Wrong";
     score -= 10;
-    currentIndex++;
-    displayNextQuestion();
   }
+  // debugger
+  console.log(currentIndex);
+    currentIndex++;
+    // console.log(currentIndex);
+    displayNextQuestion();
+ 
 }
 // displayNext Question will cont to display questions until it reaches the greater than the questions array length.
 function displayNextQuestion() {
   if (currentIndex < questions.length) {
     displayQuestion(currentIndex);
+    // console.log(currentIndex);
   } else {
     return endOfGame();
   }
@@ -97,24 +108,29 @@ function runTheScore() {
     scoreElement.textContent = "Score: " + score;
     score--;
   } else {
-    scoreElement.contextContent = "Score: " + score;
-    
     endOfGame();
+    scoreElement.contextContent = "Score: " + score;
+   
   }
 }
 
 // This function is to uses setInterval method to have our time count down my 1 every second.
 function scoreboardFun() {
-  let scoreboard = setInterval(runTheScore, setTimer);
+  scoreTimer = setInterval(runTheScore, setTimer);
+
+
 }
 //  ToDo: For All Done unhide #lastSection and Hide #quizQuestions Container user score will be pulled from the score element and be written to totalScore. userInitals will need to be a user input and stored to local storage.
 function endOfGame() {
+  clearInterval(scoreTimer);
+  
   document.getElementById("quizQuestionContainer").style.display = "none";
   document.getElementById("lastSection").style.display = "block";
   document.getElementById("allDone").textContent = "All Done";
   document.getElementById("totalScore").textContent = `Your final score is ${score}`;
+  document.getElementById("score").textContent = `Time: ${score}`;
   saveScores();
-  
+ 
 }
 
 function saveScores() {
@@ -149,6 +165,7 @@ function displayScoresOnBoard() {
    
     
   }
+  
 }
 
 function displayLeaderBoard(){
@@ -159,9 +176,22 @@ function displayLeaderBoard(){
   
 }
 // Todo: Return user to start quiz #returnToQuiz
-
+function returnToQuiz(){
+  document.getElementById("returnToQuiz").addEventListener('click', function(){
+    document.getElementById("startQuizSection").style.display = "block";
+    document.getElementById("leaderBoard").style.display = "none";
+    document.getElementById("quizQuestionContainer").style.display = "none";
+    document.getElementById("lastSection").style.display = "none";
+    
+  })
+}
 // Todo: clear the scores off the board. May need to look at how to clear local storage?
+
 function clearLeaderBoard(){
-  var leaderList = document.getElementById("leaderBoardList")
-  leaderList = "";
+  document.getElementById("clearScores").addEventListener('click', function(){
+    var leaderList = document.getElementById("leaderBoardList")
+    leaderList = "";
+    localStorage.clear();
+  } )
+  
 }
