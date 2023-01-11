@@ -9,7 +9,7 @@ var answerOne = document.getElementById("answer1");
 var answerTwo = document.getElementById("answer2");
 var answerThree = document.getElementById("answer3");
 var answerFour = document.getElementById("answer4");
-var userInputAnswer = "";
+var userInputAnswer;
 var scoreTimer ;
 var questions = [
   {
@@ -54,7 +54,7 @@ function startQuiz() {
   document.getElementById("startQuizSection").style.display = "none";
   document.getElementById("quizQuestionContainer").style.display = "block";
   displayQuestion(currentIndex);
-  // console.log(currentIndex)
+
   
 }
 
@@ -62,17 +62,12 @@ function startQuiz() {
 function displayQuestion(index) {
  
   question1Element.textContent = questions[index].title;
-  // console.log(answerOne);
+  
   answerOne.textContent = questions[index].answers[0];
   answerTwo.textContent = questions[index].answers[1];
   answerThree.textContent = questions[index].answers[2];
   answerFour.textContent = questions[index].answers[3];
-  // document.querySelectorAll(".userAnswer").forEach((answer) => {
-  //   answer.addEventListener("click", (event) => {
-  //     userInputAnswer = event.target.textContent;
-  //     answerTheQuestions();
-  //   });
-  // });
+ 
 }
 
 // answerTheQuestions should take the users answer and compare it to the correct answer. If it's correct it will display correct at the bottom and the go to the next question. If it is in correct it wil notify the user they were wrong, reduce the score by 10 and then show the next question.
@@ -114,13 +109,13 @@ function runTheScore() {
   }
 }
 
-// This function is to uses setInterval method to have our time count down my 1 every second.
+
 function scoreboardFun() {
   scoreTimer = setInterval(runTheScore, setTimer);
 
 
 }
-//  ToDo: For All Done unhide #lastSection and Hide #quizQuestions Container user score will be pulled from the score element and be written to totalScore. userInitals will need to be a user input and stored to local storage.
+
 function endOfGame() {
   clearInterval(scoreTimer);
   
@@ -129,28 +124,32 @@ function endOfGame() {
   document.getElementById("allDone").textContent = "All Done";
   document.getElementById("totalScore").textContent = `Your final score is ${score}`;
   document.getElementById("score").textContent = `Time: ${score}`;
-  saveScores();
+  
  
 }
 
 function saveScores() {
   var leaderBoardString = window.localStorage.getItem("leaderBoardInfo");
   var scores = [];
+  var players = document.getElementById('userinputInitals').value;
+   console.log('document',players);
 
   if (leaderBoardString) {
     scores = JSON.parse(leaderBoardString);
   }
   scores.push({
-    Player: document.getElementById("userinputInitals").value,
+    Player: players,
     playerScore: score,
   });
   localStorage.setItem("leaderBoardInfo", JSON.stringify(scores));
+  console.log(scores.player);
 }
 
-// Todo: High Scores Unhide Leaderboard &hide Last section. Create <li> to store the userIntials and Score scores in #leaderBoardList.
+
 function displayScoresOnBoard() {
   var scores = JSON.parse(localStorage.getItem("leaderBoardInfo"));
   console.log(scores);
+
   if (scores) {
     var sortedscores = scores.sort((a, b) => {
       a.playerScore > b.playerScore;
@@ -162,23 +161,25 @@ function displayScoresOnBoard() {
     sortedscores.forEach(function (sortedscores) {
       var li = document.createElement("li");
       var ol = document.getElementById("leaderBoardList");
-      li.innerText = sortedscores;
+      li.innerText = `${sortedscores.Player} ${sortedscores.playerScore}`;
       ol.appendChild(li);
     });
+    score = 60;
    
-    // the player's intials are not saving need to figure that out. 
+    
   }
   
 }
 
 function displayLeaderBoard(){
+  saveScores();
   document.getElementById("leaderBoard").style.display = "block";
   document.getElementById("quizQuestionContainer").style.display = "none";
   document.getElementById("lastSection").style.display = "none";
   document.getElementById("startQuizSection").style.display = "none";
   displayScoresOnBoard();
 }
-// Todo: Return user to start quiz #returnToQuiz
+
 function returnToQuiz(){
   document.getElementById("returnToQuiz").addEventListener('click', function(){
     document.getElementById("startQuizSection").style.display = "block";
@@ -188,7 +189,7 @@ function returnToQuiz(){
     
   })
 }
-// Todo: clear the scores off the board. May need to look at how to clear local storage?
+
 
 function clearLeaderBoard(){
   document.getElementById("clearScores").addEventListener('click', function(){
