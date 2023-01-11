@@ -80,9 +80,7 @@ nav a {
 }
 #leaderBoardList {
     list-style: decimal;
-    background-color: rgb(177, 177, 241);
-    height: 100px;
-    border-radius: 8px;
+
     
 
 }
