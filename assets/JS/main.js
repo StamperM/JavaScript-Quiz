@@ -166,7 +166,7 @@ function displayScoresOnBoard() {
       ol.appendChild(li);
     });
    
-    
+    // the player's intials are not saving need to figure that out. 
   }
   
 }
@@ -193,8 +193,10 @@ function returnToQuiz(){
 function clearLeaderBoard(){
   document.getElementById("clearScores").addEventListener('click', function(){
     var leaderList = document.getElementById("leaderBoardList")
-    leaderList = "";
     localStorage.clear();
+    leaderList.innerHTML = '';
+
+    
   } )
   
 }
