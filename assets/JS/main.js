@@ -136,6 +136,7 @@ function endOfGame() {
 function saveScores() {
   var leaderBoardString = window.localStorage.getItem("leaderBoardInfo");
   var scores = [];
+
   if (leaderBoardString) {
     scores = JSON.parse(leaderBoardString);
   }
@@ -149,6 +150,7 @@ function saveScores() {
 // Todo: High Scores Unhide Leaderboard &hide Last section. Create <li> to store the userIntials and Score scores in #leaderBoardList.
 function displayScoresOnBoard() {
   var scores = JSON.parse(localStorage.getItem("leaderBoardInfo"));
+  console.log(scores);
   if (scores) {
     var sortedscores = scores.sort((a, b) => {
       a.playerScore > b.playerScore;
@@ -157,10 +159,11 @@ function displayScoresOnBoard() {
       score.Player;
       score.playerScore;
     });
-    sortedscores.forEach(function (item) {
-      let li = document.createElement("li");
-      li.innerText = item;
-      list.appendChild(li);
+    sortedscores.forEach(function (sortedscores) {
+      var li = document.createElement("li");
+      var ol = document.getElementById("leaderBoardList");
+      li.innerText = sortedscores;
+      ol.appendChild(li);
     });
    
     
@@ -173,7 +176,7 @@ function displayLeaderBoard(){
   document.getElementById("quizQuestionContainer").style.display = "none";
   document.getElementById("lastSection").style.display = "none";
   document.getElementById("startQuizSection").style.display = "none";
-  
+  displayScoresOnBoard();
 }
 // Todo: Return user to start quiz #returnToQuiz
 function returnToQuiz(){
